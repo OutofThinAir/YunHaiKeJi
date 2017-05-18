@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/stu_pil03_iamge"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:src="@mipmap/ic_launcher"
+        />
+
+
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@mipmap/home_page_content_album"
+    android:layout_alignRight="@id/stu_pil03_iamge"
+    android:layout_marginLeft="6dp"/>
+
+
+</RelativeLayout>
