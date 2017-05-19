@@ -16,6 +16,7 @@
     </FrameLayout>
 
     <RadioGroup
+        android:id="@+id/main_pager_rg"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:orientation="horizontal">
