@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <com.youth.banner.Banner
+        android:id="@+id/stu_pagerbanner"
+        android:layout_width="match_parent"
+        android:layout_height="140dp">
+
+    </com.youth.banner.Banner>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <yunhaikeji.com.yuzhiweilai.view.my_view.CustomLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+             <yunhaikeji.com.yuzhiweilai.view.my_view.CustomListView
+                 android:id="@+id/stu_pager_lv_free"
+                 android:layout_width="match_parent"
+                 android:layout_height="0dp"
+                 android:layout_weight="1"
+                 android:dividerHeight="1dp"
+                 android:divider="#cfcfcf">
+
+             </yunhaikeji.com.yuzhiweilai.view.my_view.CustomListView>
+
+            <yunhaikeji.com.yuzhiweilai.view.my_view.CustomListView
+                android:id="@+id/stu_pager_lv_choiceness"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:dividerHeight="1dp"
+                android:divider="#cfcfcf">
+
+            </yunhaikeji.com.yuzhiweilai.view.my_view.CustomListView>
+
+            <RelativeLayout
+                android:id="@+id/stu_pager_lookall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/stu_pager_zj_iamge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/home_page_delta"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#121212"
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@id/stu_pager_zj_iamge"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerVertical="true"
+                    android:text="精品专辑"
+
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal"
+                    android:layout_alignParentRight="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#121212"
+                        android:textSize="12sp"
+                        android:layout_gravity="center_vertical"
+                        android:text="精品课程"
+                        android:layout_marginRight="5dp"
+
+                        />
+
+                    <ImageView
+
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/stu_pager_right"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="15dp"
+                        />
+
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+            <yunhaikeji.com.yuzhiweilai.view.my_view.CustomGridView
+                android:id="@+id/stu_pager_lv_special"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:numColumns="3"
+               >
+
+            </yunhaikeji.com.yuzhiweilai.view.my_view.CustomGridView>
+
+        </yunhaikeji.com.yuzhiweilai.view.my_view.CustomLinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

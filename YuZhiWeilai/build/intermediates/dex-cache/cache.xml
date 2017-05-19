@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.0.1\2780d858273ce1bb90f6b12e1ef0d40f7741fca\converter-gson-2.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02780d858273ce1bb90f6b12e1ef0d40f7741fca">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\converter-gson-2.0.1_b0c4b929ee3b4c2d4b184b2f94e54e6aa1a7b32b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.0.1\27293c440d2085cde1d859528aff6e7d3b6ae40\retrofit-2.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="027293c440d2085cde1d859528aff6e7d3b6ae40">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\retrofit-2.0.1_c6dfa2feee0f922c3b4b241a295ad3d98c347453.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.3.1_9b9b72c56a8a9e464341fc092c8170441262cd25.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.1\c7c4f9e35c2fd5900da24f9872e3971801f08ce0\okhttp-3.4.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\okhttp-3.4.1_a3a718343956c6e4d917a53a4fdd4a4dc134cda5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.3.1_30dc515502d62b1eff03ee30275ea2215bd8b629.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava\2.0.1\cabf146d220dcd70a2972166cd1bfae200b97eff\adapter-rxjava-2.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cabf146d220dcd70a2972166cd1bfae200b97eff">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\adapter-rxjava-2.0.1_354c7e84fe06da298f398c2d0eed9015e23b6f53.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4c4b83de2f6412072d2a29b1b7a5b03edaad5ff">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\io.reactivex-rxandroid-1.1.0_393ff1f6f89a005db078281bfea7d877cca19412.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\logging-interceptor\3.4.1\381fc1096ba65040d8e80ea43b2e1d9bad02345e\logging-interceptor-3.4.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="381fc1096ba65040d8e80ea43b2e1d9bad02345e">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\logging-interceptor-3.4.1_16ea2c5adabd180da0b0709521ed490e4e49b95b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2e2ee82dbc490a90a082800f9534adf9038ee34b">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\instant-run_e68ff1bc1a8216ce2ff86ffa0797b0948ef57267.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.3.1_3f1376ac556dcfb6fc4043665a3a37a69e2edfb1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.1.1\b494968f6050d494de55dc3ce005e59c7eb40012\rxjava-1.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b494968f6050d494de55dc3ce005e59c7eb40012">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\rxjava-1.1.1_b32c51ee4250f1b7ad2ddad96967d4ec77f214d3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\AndroidSdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_15d442ee604894f756f8ff71e96b7061df38285a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.3.1_f311c0620b4c8c6993ee1b6350d60e3c948a4b23.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.6.1\b9d63507329a7178e026fc334f87587ee5070ac5\gson-2.6.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9d63507329a7178e026fc334f87587ee5070ac5">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\gson-2.6.1_7cd154ea7948a4454c775db22bc00deb7ba667b3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.3.1_3ffbae1dba58480bd3a2d3a755ac8ef105e1237d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\glide-3.7.0_1f3ddf859a86296da03fddcf50d19f29d652df81.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.3.1_3e1835dc9b99718f83c81c026195e55a87216d26.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.3.1_08dde8c57d8de4f2bca4ab244b1e19d5f8e58535.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\exploded-aar\com.youth.banner\banner\1.4.9\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5f49fbc1bda3fa9073a82dd87de3e1ceea24268d">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\com.youth.banner-banner-1.4.9_8ef26112cb7d0fc659107feb4ccfa4f54fd7d2fe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0eacc5c7f81cdfff72ffebfbd177939ace75d9c9">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_ab4acd6c3cb363fd8aaf6cbdb5ed24feb45bc13f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.9.0\f824591a0016efbaeddb8300bee54832a1398cfa\okio-1.9.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\okio-1.9.0_db0545b090bbd931e1cf6e43202e038727277a7d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.3.1_9d8e20a0034e68b5898449e116741d4fb8ff7063.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="H:\YnhaiKeji\YunHaiKeJi\YuZhiWeilai\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.3.1_ed131cf53dd373c06ec7f3b6ef087257496ffaa6.jar" />
+    </item>
+
+</items>
