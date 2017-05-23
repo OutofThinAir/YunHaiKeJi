@@ -8,4 +8,6 @@ package yunhaikeji.com.yuzhiweilai.model.function_interface;
 
 public interface ModelFunctionInterface {
 
+
+
 }

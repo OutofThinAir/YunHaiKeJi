@@ -2,10 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="student"/>
+
     
     <com.youth.banner.Banner
         android:id="@+id/stu_pagerbanner"
@@ -21,6 +18,65 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/stu_pager_mf_lookall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/stu_pager_mf_iamge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/home_page_delta"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#121212"
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@id/stu_pager_mf_iamge"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerVertical="true"
+                    android:text="免费试听"
+
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal"
+                    android:layout_alignParentRight="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#808080"
+                        android:textSize="12sp"
+                        android:layout_gravity="center_vertical"
+                        android:text="查看全部"
+                        android:layout_marginRight="5dp"
+
+                        />
+
+                    <ImageView
+
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/stu_pager_right"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="15dp"
+                        />
+
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
 
              <yunhaikeji.com.yuzhiweilai.view.my_view.CustomListView
                  android:id="@+id/stu_pager_lv_free"
@@ -31,6 +87,66 @@
                  android:divider="#cfcfcf">
 
              </yunhaikeji.com.yuzhiweilai.view.my_view.CustomListView>
+
+            <RelativeLayout
+                android:id="@+id/stu_pager_jxlookall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/stu_pager_jx_iamge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/home_page_delta"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#121212"
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@id/stu_pager_jx_iamge"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerVertical="true"
+                    android:text="精选课程"
+
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal"
+                    android:layout_alignParentRight="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#808080"
+                        android:textSize="12sp"
+                        android:layout_gravity="center_vertical"
+                        android:text="查看全部"
+                        android:layout_marginRight="5dp"
+
+                        />
+
+                    <ImageView
+
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/stu_pager_right"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="15dp"
+                        />
+
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
 
             <yunhaikeji.com.yuzhiweilai.view.my_view.CustomListView
                 android:id="@+id/stu_pager_lv_choiceness"
@@ -44,7 +160,7 @@
             </yunhaikeji.com.yuzhiweilai.view.my_view.CustomListView>
 
             <RelativeLayout
-                android:id="@+id/stu_pager_lookall"
+                android:id="@+id/stu_pager_jp_lookall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
@@ -78,10 +194,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#121212"
+                        android:textColor="#808080"
                         android:textSize="12sp"
                         android:layout_gravity="center_vertical"
-                        android:text="精品课程"
+                        android:text="查看全部"
                         android:layout_marginRight="5dp"
 
                         />

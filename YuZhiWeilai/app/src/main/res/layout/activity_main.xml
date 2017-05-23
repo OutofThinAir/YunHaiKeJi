@@ -32,7 +32,7 @@
             android:id="@+id/main_frame_rb_cla"
             style="@style/activity_main_rb_style"
             android:text="课程"
-            android:drawableTop="@mipmap/class_pager_rb_selected"
+            android:drawableTop="@drawable/class_pager_rb_selector"
             android:textColor="@drawable/main_pager_text_selector"/>
         <RadioButton
             android:id="@+id/main_frame_rb_my"
