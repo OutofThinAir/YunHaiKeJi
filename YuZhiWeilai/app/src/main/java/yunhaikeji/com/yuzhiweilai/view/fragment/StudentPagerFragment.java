@@ -13,11 +13,18 @@ import android.widget.RelativeLayout;
 
 import com.youth.banner.Banner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import yunhaikeji.com.yuzhiweilai.R;
+import yunhaikeji.com.yuzhiweilai.model.bena.ListBannerBean;
+import yunhaikeji.com.yuzhiweilai.presenter.ImplPresenter;
+import yunhaikeji.com.yuzhiweilai.utils.BannerImageLoader;
 import yunhaikeji.com.yuzhiweilai.view.activity.MainActivity;
+import yunhaikeji.com.yuzhiweilai.view.function_interface.ViewInterface;
 import yunhaikeji.com.yuzhiweilai.view.my_view.CustomGridView;
 import yunhaikeji.com.yuzhiweilai.view.my_view.CustomListView;
 
@@ -27,7 +34,7 @@ import yunhaikeji.com.yuzhiweilai.view.my_view.CustomListView;
  * Data:2017/5/18.
  */
 
-public class StudentPagerFragment extends Fragment implements View.OnClickListener{
+public class StudentPagerFragment extends Fragment implements View.OnClickListener,ViewInterface{
 
 
     @BindView(R.id.stu_pagerbanner)
@@ -58,6 +65,7 @@ public class StudentPagerFragment extends Fragment implements View.OnClickListen
     private QualityClassFragment qc;
     private SpecialClassFragment sc;
     private FragmentManager manager;
+    private ImplPresenter presenter;
 
     @Nullable
     @Override
@@ -68,9 +76,15 @@ public class StudentPagerFragment extends Fragment implements View.OnClickListen
         //初始化fragment
         initFragment();
         initView();
+        presenter = new ImplPresenter(getActivity(),this);
         return view;
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        presenter.showListBannerToView();
+    }
 
     @Override
     public void onDestroyView() {
@@ -115,5 +129,25 @@ public class StudentPagerFragment extends Fragment implements View.OnClickListen
                 break;
 
         }
+    }
+
+    /**
+     * 首页轮播图展示
+     * @param listBannerBean
+     */
+    @Override
+    public void showListBanner(ListBannerBean listBannerBean) {
+        ArrayList<String> list = new ArrayList<>();
+        List<ListBannerBean.DataBean.BannerBean> banner = listBannerBean.getData().getBanner();
+        for (int i = 0; i <banner.size() ; i++) {
+            list.add(banner.get(i).getImage());
+        }
+
+        //设置图片加载器
+        stuPagerbanner.setImageLoader(new BannerImageLoader());
+//设置图片集合
+        stuPagerbanner.setImages(list);
+//banner设置方法全部调用完毕时最后调用
+        stuPagerbanner.start();
     }
 }
