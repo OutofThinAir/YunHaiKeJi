@@ -1,5 +1,8 @@
 package yunhaikeji.com.yuzhiweilai.utils;
 
+import yunhaikeji.com.yuzhiweilai.model.bena.GetHostBean;
+import yunhaikeji.com.yuzhiweilai.model.utils.ModelObserver;
+
 /**
  * Use:封装所有的数据接口
  * Author:陈懿鹏
@@ -7,6 +10,7 @@ package yunhaikeji.com.yuzhiweilai.utils;
  */
 
 public class UrlConnect {
+
     //后台公钥
     public static final String PUBLIC_KEY="312045ED9D036BEED16E96F3878E222ED7E58AC9";
     //appKey 键值
@@ -29,4 +33,6 @@ public class UrlConnect {
 
     //试听列表
     public static final String LIST_TRY="app/v1/list_try";
+
+
 }

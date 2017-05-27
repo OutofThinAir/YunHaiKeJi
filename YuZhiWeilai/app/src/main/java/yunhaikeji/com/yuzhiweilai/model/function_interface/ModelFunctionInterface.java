@@ -3,6 +3,9 @@ package yunhaikeji.com.yuzhiweilai.model.function_interface;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import rx.Observer;
+import yunhaikeji.com.yuzhiweilai.model.bena.GetHostBean;
+
 /**
  * Use:Model层功能接口
  * Author:陈懿鹏
@@ -10,6 +13,15 @@ import android.content.SharedPreferences;
  */
 
 public interface ModelFunctionInterface {
+
+    /**
+     * 首次握手
+     * @param type
+     * @param dev_id
+     * @param ver_code
+     * @param tick
+     */
+    void first_hand(Context context,SharedPreferences preferences,String type, final String dev_id, final int ver_code, final String tick);
 
     /**
      * 获得首页轮播图

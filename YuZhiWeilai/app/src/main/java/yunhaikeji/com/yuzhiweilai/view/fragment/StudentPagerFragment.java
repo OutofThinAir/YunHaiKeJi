@@ -1,5 +1,7 @@
 package yunhaikeji.com.yuzhiweilai.view.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -20,9 +22,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import yunhaikeji.com.yuzhiweilai.R;
+import yunhaikeji.com.yuzhiweilai.application.App;
 import yunhaikeji.com.yuzhiweilai.model.bena.ListBannerBean;
 import yunhaikeji.com.yuzhiweilai.presenter.ImplPresenter;
 import yunhaikeji.com.yuzhiweilai.utils.BannerImageLoader;
+import yunhaikeji.com.yuzhiweilai.utils.UrlConnect;
 import yunhaikeji.com.yuzhiweilai.view.activity.MainActivity;
 import yunhaikeji.com.yuzhiweilai.view.function_interface.ViewInterface;
 import yunhaikeji.com.yuzhiweilai.view.my_view.CustomGridView;
@@ -66,6 +70,7 @@ public class StudentPagerFragment extends Fragment implements View.OnClickListen
     private SpecialClassFragment sc;
     private FragmentManager manager;
     private ImplPresenter presenter;
+    private SharedPreferences preferences;
 
     @Nullable
     @Override
@@ -76,14 +81,25 @@ public class StudentPagerFragment extends Fragment implements View.OnClickListen
         //初始化fragment
         initFragment();
         initView();
-        presenter = new ImplPresenter(getActivity(),this);
+
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        presenter.showListBannerToView();
+        presenter = new ImplPresenter(getActivity(),StudentPagerFragment.this);
+        preferences = getActivity().getSharedPreferences(App.COFIGNAME, Context.MODE_PRIVATE);
+        boolean aBoolean = preferences.getBoolean(UrlConnect.ISFIRSTINSTALL, false);
+        if (aBoolean==false){
+            //首次握手
+            presenter.showFirst();
+        }else {
+            //直接请求数据
+            presenter.showListBannerToView();
+        }
+
+
     }
 
     @Override
@@ -131,6 +147,14 @@ public class StudentPagerFragment extends Fragment implements View.OnClickListen
         }
     }
 
+    //握手成功,值存储完毕
+    @Override
+    public void getFristHand(boolean b) {
+        //首页轮播图
+        presenter.showListBannerToView();
+
+    }
+
     /**
      * 首页轮播图展示
      * @param listBannerBean
@@ -150,4 +174,7 @@ public class StudentPagerFragment extends Fragment implements View.OnClickListen
 //banner设置方法全部调用完毕时最后调用
         stuPagerbanner.start();
     }
+
+
+
 }

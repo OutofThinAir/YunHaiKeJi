@@ -12,16 +12,24 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import rx.Observable;
 import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 import yunhaikeji.com.yuzhiweilai.R;
 import yunhaikeji.com.yuzhiweilai.application.App;
+import yunhaikeji.com.yuzhiweilai.model.bena.FirstHandBean;
 import yunhaikeji.com.yuzhiweilai.model.bena.GetHostBean;
 import yunhaikeji.com.yuzhiweilai.model.bena.ListBannerBean;
+import yunhaikeji.com.yuzhiweilai.model.url_interface.DataRequestApi;
 import yunhaikeji.com.yuzhiweilai.model.utils.ModelUtils;
 
+import yunhaikeji.com.yuzhiweilai.utils.UrlConnect;
 import yunhaikeji.com.yuzhiweilai.view.fragment.ClassPagerFragment;
 import yunhaikeji.com.yuzhiweilai.view.fragment.FreeClassFragment;
 import yunhaikeji.com.yuzhiweilai.view.fragment.MyPagerFragment;
@@ -51,6 +59,7 @@ public class MainActivity extends FragmentActivity {
     private FreeClassFragment freeclass;
     private QualityClassFragment qualityClass;
     private SpecialClassFragment specialClass;
+    private SharedPreferences preferences;
 
 
     @Override
@@ -59,6 +68,12 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        preferences = getSharedPreferences(App.COFIGNAME,MODE_PRIVATE);
+
+        // Log.d("Main--url",ModelUtils.hostUrl);
+
+
+
         ButterKnife.bind(this);
         manager = getSupportFragmentManager();
         //实例化Fragment
@@ -71,7 +86,12 @@ public class MainActivity extends FragmentActivity {
         qualityClass = new QualityClassFragment();
         //精品专辑
         specialClass = new SpecialClassFragment();
+
         addFragment(manager, sf, cf, mf, freeclass, qualityClass, specialClass);
+
+
+
+
 
         //RadioGroup r = (RadioGroup) findViewById(R.id.main_pager_rg);
 
@@ -95,21 +115,16 @@ public class MainActivity extends FragmentActivity {
         });
 
 
-        SharedPreferences preferences=getSharedPreferences(App.COFIGNAME,MODE_PRIVATE);
-       //Log.d("MainActivity--md5",ModelUtils.md5("qwer890"));
+
+
+        //Log.d("MainActivity--md5",ModelUtils.md5("qwer890"));
         //测试Log
-       Log.d("appKey--------->",ModelUtils.getAppKey(preferences));
-        Log.d("privateKey--------->",ModelUtils.getPrivateKey(preferences));
+
         Log.d("Main-versionCode", "versionCode:"+ModelUtils.getVer_code(this));
         Log.d("Main-did", "did:"+ModelUtils.getLocaldeviceId(this));
         Log.d("Main-tisk", "tick:"+ModelUtils.getTick());
 
-
-       // Log.d("Main--url",ModelUtils.hostUrl);
-
-
-
-
+        Log.d("url",ModelUtils.getHostUrl(preferences));
 
     }
 
@@ -161,6 +176,9 @@ public class MainActivity extends FragmentActivity {
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         }
     }
+
+
+
 
 
 }

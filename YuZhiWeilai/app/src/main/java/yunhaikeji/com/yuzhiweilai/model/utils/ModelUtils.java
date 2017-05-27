@@ -32,7 +32,7 @@ import yunhaikeji.com.yuzhiweilai.utils.UrlConnect;
  */
 
 public class ModelUtils {
-    public static String hostUrl;
+
 
 
     /**
@@ -220,6 +220,9 @@ public class ModelUtils {
      */
     public static void getHost(String privateKey,String appKey,String devId,int verCode,String tick,Observer<GetHostBean> observer){
 
+        Log.d("ModelUtil-getHost-key",privateKey);
+        Log.d("ModelUtil-getHost-id",appKey);
+
 
         //生成签名
         StringBuffer sb = new StringBuffer();
@@ -247,6 +250,16 @@ public class ModelUtils {
     }
 
 
-
+    public static String getHostUrl(SharedPreferences p ){
+        String host_url = p.getString("host_url", "");
+        return host_url;
+    }
 
 }
+
+
+
+
+
+
+

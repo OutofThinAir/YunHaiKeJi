@@ -1,6 +1,8 @@
 package yunhaikeji.com.yuzhiweilai.model.utils;
 
 import rx.Observer;
+import yunhaikeji.com.yuzhiweilai.model.bena.GetHostBean;
+import yunhaikeji.com.yuzhiweilai.utils.UrlConnect;
 
 /**
  * Use:model 类的观察者
@@ -8,7 +10,8 @@ import rx.Observer;
  * Data:2017/5/25.
  */
 
-public class ModelObserver<T> implements Observer<T> {
+public class ModelObserver implements Observer<GetHostBean> {
+
 
     @Override
     public void onCompleted() {
@@ -21,7 +24,10 @@ public class ModelObserver<T> implements Observer<T> {
     }
 
     @Override
-    public void onNext(T t) {
+    public void onNext(GetHostBean t) {
+
 
     }
+
+
 }
