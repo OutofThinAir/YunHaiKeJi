@@ -40,9 +40,11 @@ public class App extends Application {
         preferences = getSharedPreferences(COFIGNAME,MODE_PRIVATE);
         final boolean firstInstall =ModelUtils.isFirstInstall(preferences);
         Log.d("Main_firstInstall", "firstInstall "+firstInstall);
-        if (firstInstall==false){
+
            // firstHand(ModelUtils.APPTYPE,ModelUtils.getLocaldeviceId(this),ModelUtils.getVer_code(this),ModelUtils.getTick());
-        }else {
+
+        boolean b = preferences.getBoolean(UrlConnect.ISFIRSTINSTALL,false);
+        if(b==true){
             ModelUtils.getHost(ModelUtils.getPrivateKey(preferences), ModelUtils.getAppKey(preferences), ModelUtils.getLocaldeviceId(this),
                     ModelUtils.getVer_code(this), ModelUtils.getTick(), new Observer<GetHostBean>() {
                         @Override
@@ -64,9 +66,10 @@ public class App extends Application {
                         }
                     });
         }
-
-
     }
+
+
+
 
     /**
      *首次握手

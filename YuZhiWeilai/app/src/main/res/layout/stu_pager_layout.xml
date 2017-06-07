@@ -7,14 +7,14 @@
     <com.youth.banner.Banner
         android:id="@+id/stu_pagerbanner"
         android:layout_width="match_parent"
-        android:layout_height="140dp">
+        android:layout_height="@dimen/x312">
 
     </com.youth.banner.Banner>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <yunhaikeji.com.yuzhiweilai.view.my_view.CustomLinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -229,7 +229,7 @@
 
             </yunhaikeji.com.yuzhiweilai.view.my_view.CustomGridView>
 
-        </yunhaikeji.com.yuzhiweilai.view.my_view.CustomLinearLayout>
+        </LinearLayout>
     </ScrollView>
 
 

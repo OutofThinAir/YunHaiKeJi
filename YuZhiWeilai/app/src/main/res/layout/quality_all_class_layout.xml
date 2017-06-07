@@ -11,8 +11,8 @@
 
         <ImageView
             android:id="@+id/qualtiy_all_pager_last"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:background="@mipmap/last_ic"
             android:layout_marginLeft="15dp"
             android:layout_centerVertical="true"/>

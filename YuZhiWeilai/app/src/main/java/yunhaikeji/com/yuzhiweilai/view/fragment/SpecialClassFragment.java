@@ -11,10 +11,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import yunhaikeji.com.yuzhiweilai.R;
+import yunhaikeji.com.yuzhiweilai.model.adapter.SpecialClassAdepter;
+import yunhaikeji.com.yuzhiweilai.model.bena.SpecialClassBean;
+import yunhaikeji.com.yuzhiweilai.presenter.ImplPresenter;
 import yunhaikeji.com.yuzhiweilai.view.activity.MainActivity;
 
 /**
@@ -23,7 +28,7 @@ import yunhaikeji.com.yuzhiweilai.view.activity.MainActivity;
  * Data:2017/5/22.
  */
 
-public class SpecialClassFragment extends Fragment {
+public class SpecialClassFragment extends BaseFragment {
     @BindView(R.id.special_all_class_last)
     ImageView specialAllClassLast;
     @BindView(R.id.special_all_class_title)
@@ -38,6 +43,7 @@ public class SpecialClassFragment extends Fragment {
     private StudentPagerFragment sf;
     private QualityClassFragment qc;
     private FragmentManager manager;
+    private ImplPresenter presenter;
 
     @Nullable
     @Override
@@ -55,6 +61,15 @@ public class SpecialClassFragment extends Fragment {
         return view;
     }
 
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        //实例化p层
+        presenter = new ImplPresenter(getActivity(),this);
+        presenter.showListSpecial(10);
+    }
+
     //获得MainActivity 对象,以及其他fragment对象
     private void initFragment(){
         activity = (MainActivity) getActivity();
@@ -65,6 +80,13 @@ public class SpecialClassFragment extends Fragment {
         fc = (FreeClassFragment) manager.findFragmentByTag("fc");
         sf = (StudentPagerFragment) manager.findFragmentByTag("sf");
         qc = (QualityClassFragment) manager.findFragmentByTag("qc");
+    }
+
+    @Override
+    public void showListSpecial(ArrayList<SpecialClassBean.DataBean.TopicBean> list) {
+        super.showListSpecial(list);
+        SpecialClassAdepter adepter = new SpecialClassAdepter(getActivity(),list);
+        specialAllClassLv.setAdapter(adepter);
     }
 
     @Override

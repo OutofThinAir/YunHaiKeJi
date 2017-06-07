@@ -5,7 +5,9 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.lang.reflect.AnnotatedElement;
 import java.util.ArrayList;
+import java.util.List;
 
 import rx.Observable;
 import rx.Observer;
@@ -17,6 +19,10 @@ import yunhaikeji.com.yuzhiweilai.model.bena.FirstHandBean;
 import yunhaikeji.com.yuzhiweilai.model.bena.GetHostBean;
 import yunhaikeji.com.yuzhiweilai.model.bena.ListBannerBean;
 import yunhaikeji.com.yuzhiweilai.model.bena.ListTryBean;
+import yunhaikeji.com.yuzhiweilai.model.bena.LoginBean;
+import yunhaikeji.com.yuzhiweilai.model.bena.ReginBean;
+import yunhaikeji.com.yuzhiweilai.model.bena.SpecialClassBean;
+import yunhaikeji.com.yuzhiweilai.model.bena.VerifyBean;
 import yunhaikeji.com.yuzhiweilai.model.function_interface.ModelFunctionInterface;
 import yunhaikeji.com.yuzhiweilai.model.url_interface.DataRequestApi;
 import yunhaikeji.com.yuzhiweilai.model.utils.ModelObserver;
@@ -44,91 +50,7 @@ public class ImplFunction implements ModelFunctionInterface {
     }
 
 
-    @Override
-    public void first_hand(final Context context, final SharedPreferences preferences, String type, String dev_id, int ver_code, String tick) {
-        //生成签名
-        StringBuffer sb = new StringBuffer();
-        sb.append(UrlConnect.PUBLIC_KEY)
-                .append(type)
-                .append(dev_id)
-                .append(ver_code)
-                .append(tick);
-        //Md5加密
-        String sign_ = ModelUtils.md5(sb.toString());
-        String sign=sign_.toUpperCase();
 
-        Log.d("sign",sign);
-
-        //获得调用接口
-        DataRequestApi dataRequestApi = ModelUtils.getDataRequestApi(UrlConnect.BESE_URL);
-        //请求网络
-        final Observable<FirstHandBean> firstHand = dataRequestApi.firstHand(type, dev_id, ver_code, tick, sign);
-        //给被观察者设置线程
-        firstHand.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .map(new Func1<FirstHandBean, FirstHandBean>() {
-                    @Override
-                    public FirstHandBean call(FirstHandBean firstHandBean) {
-                        return firstHandBean;
-                    }
-                })
-                .subscribe(new Observer<FirstHandBean>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onNext(FirstHandBean firstHandBean) {
-
-                        // Toast.makeText(MainActivity.this, "sssss", Toast.LENGTH_SHORT).show();
-                        //得到app_key 和private_key
-                        String appKey = firstHandBean.getData().getApp_id();
-                        String mprivateKey = firstHandBean.getData().getPrivate_key();
-
-
-                        //存储到SharedPreferences 里,同时存储一个标记,表示首次安装
-                        SharedPreferences.Editor edit = preferences.edit();
-                        edit.putString(UrlConnect.APP_KEY, appKey);
-                        edit.putString(UrlConnect.PRIVATE_KEY, mprivateKey);
-                        edit.putBoolean(UrlConnect.ISFIRSTINSTALL, true);
-                        edit.commit();
-                        // notification.mynotify();
-                        //导向
-                        ModelUtils.getHost(mprivateKey, appKey, ModelUtils.getLocaldeviceId(context),
-                                ModelUtils.getVer_code(context), ModelUtils.getTick(), new Observer<GetHostBean>() {
-                                    @Override
-                                    public void onCompleted() {
-
-                                    }
-
-                                    @Override
-                                    public void onError(Throwable e) {
-
-                                    }
-
-                                    @Override
-                                    public void onNext(GetHostBean getHostBean) {
-                                        SharedPreferences.Editor edit = preferences.edit();
-                                        edit.putString("host_url",getHostBean.getData().getUrl_host());
-                                        edit.commit();
-
-                                      presenter.getFirstHand(true);
-
-
-                                    }
-                                });
-
-
-
-                    }
-                });
-    }
 
     /**
      * 首页轮播图
@@ -215,29 +137,247 @@ public class ImplFunction implements ModelFunctionInterface {
         final Observable<ListTryBean> listtry= requestApi.getListTry(appKey,devId,verCode,tick,session,category,page_size,page_index,sgin);
         listtry.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map(new Func1<ListTryBean, ArrayList<ListTryBean>>() {
+                .map(new Func1<ListTryBean, ListTryBean>() {
                     @Override
-                    public ArrayList<ListTryBean> call(ListTryBean listTryBean) {
-                        ArrayList<ListTryBean> list=new ArrayList<ListTryBean>();
-                        list.add(listTryBean);
-                        return list;
+                    public ListTryBean call(ListTryBean listTryBean) {
+                        return listTryBean;
                     }
-                }).subscribe(new Observer<ArrayList<ListTryBean>>() {
-            @Override
-            public void onCompleted() {
+                })
+                .subscribe(new Observer<ListTryBean>() {
+                    @Override
+                    public void onCompleted() {
 
-            }
+                    }
 
-            @Override
-            public void onError(Throwable e) {
+                    @Override
+                    public void onError(Throwable e) {
 
-            }
+                    }
 
-            @Override
-            public void onNext(ArrayList<ListTryBean> listTryBeen) {
-                //数据传到p层
-                // Log.d("Mo_on",listTryBeen.toString());
-            }
-        });
+                    @Override
+                    public void onNext(ListTryBean listTryBean) {
+
+                        presenter.getListTryClass((ArrayList<ListTryBean.DataBean.TryBean>) listTryBean.data.tryX);
+
+
+                    }
+                });
+    }
+
+    /**精品专辑
+     *
+     * @param context
+     * @param preferences
+     * @param appKey
+     * @param devId
+     * @param verCode
+     * @param tick
+     * @param session
+     * @param category
+     * @param page_size
+     * @param page_index
+     */
+    @Override
+    public void getList_topic(Context context, SharedPreferences preferences, String appKey, String devId, int verCode, String tick, String session, String category, int page_size, int page_index) {
+
+        final StringBuffer sb = new StringBuffer();
+        sb.append(ModelUtils.getPrivateKey(preferences))
+                .append(appKey)
+                .append(devId)
+                .append(verCode)
+                .append(tick);
+        if (session!=null){
+            sb.append(session);
+        }
+
+        if (category!=null){
+            sb.append(category);
+        }
+        sb.append(page_size)
+                .append(page_index);
+
+        String sgin =ModelUtils.md5(sb.toString()).toUpperCase();
+
+        DataRequestApi requestApi = ModelUtils.getDataRequestApi(ModelUtils.getHostUrl(preferences));
+
+        Observable<SpecialClassBean> tipoc = requestApi.getTipoc(appKey, devId, verCode, tick, session, category, page_size, page_index, sgin);
+        tipoc.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<SpecialClassBean>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(SpecialClassBean specialClassBean) {
+                           presenter.getListSpecial((ArrayList<SpecialClassBean.DataBean.TopicBean>) specialClassBean.getData().getTopic());
+                    }
+                });
+    }
+
+    /**
+     * 注册
+     * @param context
+     * @param preferences
+     * @param appKey
+     * @param devId
+     * @param verCode
+     * @param tick
+     * @param mobile
+     */
+    @Override
+    public void user_regin(final Context context, final SharedPreferences preferences, final String appKey, final String devId, final int verCode, final String tick, String mobile, final String rand, final String pwd) {
+
+        //生成签名文件
+        StringBuffer sb = new StringBuffer();
+        sb.append(ModelUtils.getPrivateKey(preferences))
+                .append(appKey)
+                .append(devId)
+                .append(verCode)
+                .append(tick)
+                .append(mobile);
+        String sign = ModelUtils.md5(sb.toString()).toUpperCase();
+
+        //获得请请求接口
+        DataRequestApi dataRequestApi = ModelUtils.getDataRequestApi(ModelUtils.getHostUrl(preferences));
+        Observable<ReginBean> userrigin = dataRequestApi.Userrigin(appKey, devId, verCode, tick, mobile, sign);
+        userrigin.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ReginBean>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(ReginBean reginBean) {
+                        if (reginBean.getData()==null){
+                            presenter.getReginBean(reginBean);
+                        }else{
+                            user_check_rand(context,preferences,reginBean,appKey,devId,verCode,tick,reginBean.getData().getSession(),
+                                    rand,pwd);
+                        }
+
+
+
+                       // presenter.getReginBean(reginBean);
+                    }
+                });
+
+    }
+
+    /**
+     * 校检验证码
+     * @param context
+     * @param preferences
+     * @param appKey
+     * @param devId
+     * @param verCode
+     * @param tick
+     * @param session
+     * @param rand
+     * @param pwd
+     */
+    @Override
+    public void user_check_rand(Context context, SharedPreferences preferences, final ReginBean reginBean, String appKey, String devId, int verCode, String tick, String session, String rand, String pwd) {
+
+        //生成签名
+        StringBuffer sb = new StringBuffer();
+        sb.append(ModelUtils.getPrivateKey(preferences))
+                .append(appKey)
+                .append(devId)
+                .append(verCode)
+                .append(tick)
+                .append(session)
+                .append(rand)
+                .append(pwd);
+        String sign = ModelUtils.md5(sb.toString()).toUpperCase();
+
+        DataRequestApi dataRequestApi = ModelUtils.getDataRequestApi(ModelUtils.getHostUrl(preferences));
+        Observable<VerifyBean> verifyBeanObservable = dataRequestApi.checket_verify(appKey, devId, verCode, tick, session, rand, pwd, sign);
+        verifyBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<VerifyBean>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(VerifyBean verifyBean) {
+                        //presenter.getReginBean(reginBean);
+                        presenter.getVerifyBean(verifyBean);
+
+
+
+                    }
+                });
+
+
+    }
+
+    /**
+     *
+     * @param context
+     * @param preferences
+     * @param appKey
+     * @param devId
+     * @param verCode
+     * @param tick
+     * @param mobile
+     * @param pwd
+     */
+    @Override
+    public void pwd_login(Context context, final SharedPreferences preferences, String appKey, String devId, int verCode, String tick, String mobile, String pwd) {
+
+        //生成签名
+        StringBuffer sb = new StringBuffer();
+        sb.append(ModelUtils.getPrivateKey(preferences))
+                .append(appKey)
+                .append(devId)
+                .append(verCode)
+                .append(tick)
+                .append(mobile)
+                .append(pwd);
+       String sgin= ModelUtils.md5(sb.toString()).toUpperCase();
+        DataRequestApi userlogin=ModelUtils.getDataRequestApi(ModelUtils.getHostUrl(preferences));
+       Observable<LoginBean> loginUser= userlogin.user_pwd_login(appKey,devId,verCode,tick,mobile,pwd,sgin);
+        loginUser.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<LoginBean>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(LoginBean loginBean) {
+                        presenter.getLoginBean(loginBean);
+
+                    }
+                });
+
+
     }
 }

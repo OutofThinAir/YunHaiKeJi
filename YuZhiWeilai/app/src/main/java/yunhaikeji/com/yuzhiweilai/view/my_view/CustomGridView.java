@@ -28,7 +28,7 @@ public class CustomGridView extends GridView {
         //设置为Integer.MAX_VALUE>>2 是listview全部展开
         int measureSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE>>2, MeasureSpec.AT_MOST);
 //设置为400是设置listview的高度只能有400 不全部展开   实现可以滑动的效果
-        int measureSpec1 = MeasureSpec.makeMeasureSpec(400, MeasureSpec.AT_MOST);
+        int measureSpec1 = MeasureSpec.makeMeasureSpec(measureSpec, MeasureSpec.AT_MOST);
         super.onMeasure(widthMeasureSpec, measureSpec1);
     }
 }

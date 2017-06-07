@@ -1,5 +1,6 @@
 package yunhaikeji.com.yuzhiweilai.view.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -12,10 +13,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import yunhaikeji.com.yuzhiweilai.R;
+import yunhaikeji.com.yuzhiweilai.model.adapter.MyFragmentAdapter;
+import yunhaikeji.com.yuzhiweilai.model.bena.ListTryBean;
 import yunhaikeji.com.yuzhiweilai.view.activity.MainActivity;
 
 /**
@@ -24,7 +29,7 @@ import yunhaikeji.com.yuzhiweilai.view.activity.MainActivity;
  * Data:2017/5/22.
  */
 
-public class FreeClassFragment extends Fragment {
+public class FreeClassFragment extends BaseFragment {
 
     @BindView(R.id.free_all_pager_last)
     ImageView freeAllPagerLast;
@@ -58,8 +63,36 @@ public class FreeClassFragment extends Fragment {
                activity.cutFragment(manager,sf,cf,mf,qc,sc,FreeClassFragment.this);
             }
         });
+
+
         return view;
 
+
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        //上方导航的集合
+        ArrayList<String> titles = new ArrayList<>();
+        titles.add("精选");
+        titles.add("美容");
+        titles.add("美甲");
+        titles.add("按摩");
+        titles.add("培训");
+        //fragment的集合
+        ArrayList<FreeClassPagerListFragment> fragments = new ArrayList<>();
+        for (int i = 0; i <titles.size() ; i++) {
+            fragments.add(FreeClassPagerListFragment.newInstens(titles.get(i)));
+        }
+
+        //设置适配器,添加fragment
+        MyFragmentAdapter adapter = new MyFragmentAdapter(manager,titles,fragments);
+        freeAllClassTab.setTabMode(TabLayout.MODE_FIXED);
+
+
+        freeAllClassTab.setupWithViewPager(freeAllClassPager);
+        freeAllClassPager.setAdapter(adapter);
 
     }
 
@@ -80,4 +113,6 @@ public class FreeClassFragment extends Fragment {
         super.onDestroyView();
         unbinder.unbind();
     }
+
+
 }

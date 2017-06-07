@@ -29,6 +29,7 @@ import yunhaikeji.com.yuzhiweilai.model.bena.ListBannerBean;
 import yunhaikeji.com.yuzhiweilai.model.url_interface.DataRequestApi;
 import yunhaikeji.com.yuzhiweilai.model.utils.ModelUtils;
 
+import yunhaikeji.com.yuzhiweilai.presenter.FirstHandPresenter;
 import yunhaikeji.com.yuzhiweilai.utils.UrlConnect;
 import yunhaikeji.com.yuzhiweilai.view.fragment.ClassPagerFragment;
 import yunhaikeji.com.yuzhiweilai.view.fragment.FreeClassFragment;
@@ -36,9 +37,10 @@ import yunhaikeji.com.yuzhiweilai.view.fragment.MyPagerFragment;
 import yunhaikeji.com.yuzhiweilai.view.fragment.QualityClassFragment;
 import yunhaikeji.com.yuzhiweilai.view.fragment.SpecialClassFragment;
 import yunhaikeji.com.yuzhiweilai.view.fragment.StudentPagerFragment;
+import yunhaikeji.com.yuzhiweilai.view.function_interface.ViewFistHandInterface;
 import yunhaikeji.com.yuzhiweilai.view.function_interface.ViewInterface;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements ViewFistHandInterface{
 
     @BindView(R.id.main_frame)
     FrameLayout mainFrame;
@@ -72,8 +74,6 @@ public class MainActivity extends FragmentActivity {
 
         // Log.d("Main--url",ModelUtils.hostUrl);
 
-
-
         ButterKnife.bind(this);
         manager = getSupportFragmentManager();
         //实例化Fragment
@@ -87,9 +87,21 @@ public class MainActivity extends FragmentActivity {
         //精品专辑
         specialClass = new SpecialClassFragment();
 
-        addFragment(manager, sf, cf, mf, freeclass, qualityClass, specialClass);
+        //首次握手的p
+        FirstHandPresenter presenter = new FirstHandPresenter(this,preferences,this);
+        //判断首次连接
+        boolean aBoolean = preferences.getBoolean(UrlConnect.ISFIRSTINSTALL, false);
+        if (aBoolean==false){
+            //首次握手
+            presenter.showFirst();
+        }else {
+            //直接加载界面
+            addFragment(manager, sf, cf, mf, freeclass, qualityClass, specialClass);
+        }
 
 
+        //默认选中第一个
+        mainFrameRbStu.setChecked(true);
 
 
 
@@ -124,6 +136,8 @@ public class MainActivity extends FragmentActivity {
         Log.d("Main-did", "did:"+ModelUtils.getLocaldeviceId(this));
         Log.d("Main-tisk", "tick:"+ModelUtils.getTick());
 
+        Log.d("Main-privateKey", ModelUtils.getPrivateKey(preferences));
+        Log.d("Main-appid", ModelUtils.getAppKey(preferences));
         Log.d("url",ModelUtils.getHostUrl(preferences));
 
     }
@@ -178,7 +192,8 @@ public class MainActivity extends FragmentActivity {
     }
 
 
-
-
-
+    @Override
+    public void getFristHand(boolean b) {
+        addFragment(manager, sf, cf, mf, freeclass, qualityClass, specialClass);
+    }
 }

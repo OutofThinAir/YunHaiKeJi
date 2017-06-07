@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 import yunhaikeji.com.yuzhiweilai.model.bena.ListBannerBean;
 import yunhaikeji.com.yuzhiweilai.model.bena.ListTryBean;
+import yunhaikeji.com.yuzhiweilai.model.bena.LoginBean;
+import yunhaikeji.com.yuzhiweilai.model.bena.ReginBean;
+import yunhaikeji.com.yuzhiweilai.model.bena.SpecialClassBean;
+import yunhaikeji.com.yuzhiweilai.model.bena.VerifyBean;
 
 /**
  * Use:Presenter 层功能接口
@@ -18,11 +22,13 @@ public interface PresenterInterface {
      * 拿到握手成功的标识
      * @param b
      */
-    void getFirstHand(boolean b);
+   // void getFirstHand(boolean b);
+
+
     /**
      * 将标识传到view
      */
-void showFirst();
+//void showFirst();
     /**
      * 从Model层获取轮播图
      * @param listBannerBean
@@ -43,6 +49,49 @@ void showFirst();
     /**
      * 展示试听列表
      */
-    void showListTryClass();
+    void showListTryClass(String category,int pager_size);
+
+    /**
+     *
+     * @param list
+     */
+    void getListSpecial(ArrayList<SpecialClassBean.DataBean.TopicBean> list);
+
+    /**
+     * 展示专辑列表
+     */
+    void showListSpecial(int pager_size);
+
+    /**
+     * 获得注册的返回信息
+     * @param reginBean
+     */
+    void getReginBean(ReginBean reginBean);
+
+    /**
+     * 获得验证的信息
+     * @param verifyBean
+     */
+    void getVerifyBean(VerifyBean verifyBean);
+
+    /**
+     * 注册
+     */
+    void userReginBean(String mobile,String rand,String pwd);
+
+    /**
+     * 获得登录信息
+     * @param bean
+     */
+    void getLoginBean(LoginBean bean);
+
+    /**
+     * 登录
+     * @param mobile
+     * @param pwd
+     */
+
+    void userLogin(String mobile,String pwd);
+
 
 }

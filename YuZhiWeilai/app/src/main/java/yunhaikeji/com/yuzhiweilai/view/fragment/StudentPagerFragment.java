@@ -2,6 +2,7 @@ package yunhaikeji.com.yuzhiweilai.view.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -23,9 +24,14 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import yunhaikeji.com.yuzhiweilai.R;
 import yunhaikeji.com.yuzhiweilai.application.App;
+import yunhaikeji.com.yuzhiweilai.model.adapter.ListTryClassAdepter;
+import yunhaikeji.com.yuzhiweilai.model.adapter.SpecialClassAdepter;
 import yunhaikeji.com.yuzhiweilai.model.bena.ListBannerBean;
+import yunhaikeji.com.yuzhiweilai.model.bena.ListTryBean;
+import yunhaikeji.com.yuzhiweilai.model.bena.SpecialClassBean;
 import yunhaikeji.com.yuzhiweilai.presenter.ImplPresenter;
 import yunhaikeji.com.yuzhiweilai.utils.BannerImageLoader;
+import yunhaikeji.com.yuzhiweilai.utils.NetWookUtils;
 import yunhaikeji.com.yuzhiweilai.utils.UrlConnect;
 import yunhaikeji.com.yuzhiweilai.view.activity.MainActivity;
 import yunhaikeji.com.yuzhiweilai.view.function_interface.ViewInterface;
@@ -38,7 +44,7 @@ import yunhaikeji.com.yuzhiweilai.view.my_view.CustomListView;
  * Data:2017/5/18.
  */
 
-public class StudentPagerFragment extends Fragment implements View.OnClickListener,ViewInterface{
+public class StudentPagerFragment extends BaseFragment implements View.OnClickListener{
 
 
     @BindView(R.id.stu_pagerbanner)
@@ -90,14 +96,26 @@ public class StudentPagerFragment extends Fragment implements View.OnClickListen
         super.onActivityCreated(savedInstanceState);
         presenter = new ImplPresenter(getActivity(),StudentPagerFragment.this);
         preferences = getActivity().getSharedPreferences(App.COFIGNAME, Context.MODE_PRIVATE);
-        boolean aBoolean = preferences.getBoolean(UrlConnect.ISFIRSTINSTALL, false);
-        if (aBoolean==false){
-            //首次握手
-            presenter.showFirst();
-        }else {
-            //直接请求数据
+        //联网判断
+        boolean haveNet = NetWookUtils.isHaveNet(getActivity());
+
+
+//        //判断首次连接
+//        boolean aBoolean = preferences.getBoolean(UrlConnect.ISFIRSTINSTALL, false);
+//        if (aBoolean==false&&haveNet==true){
+//            //首次握手
+//            presenter.showFirst();
+//        }else if (haveNet==true){
+//            //直接请求数据
+ //           presenter.showListBannerToView();
+//        }else{
+//            //走缓存
+//        }
+
+
             presenter.showListBannerToView();
-        }
+            presenter.showListTryClass(null,5);
+            presenter.showListSpecial(6);
 
 
     }
@@ -123,6 +141,7 @@ public class StudentPagerFragment extends Fragment implements View.OnClickListen
     //注册点击事件
     private void initView(){
         stuPagerMfLookall.setOnClickListener(this);
+
         stuPagerJxlookall.setOnClickListener(this);
         stuPagerJpLookall.setOnClickListener(this);
 
@@ -132,6 +151,7 @@ public class StudentPagerFragment extends Fragment implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.stu_pager_mf_lookall:
+
                 //跳转免费课程界面
                 activity.cutFragment(manager,fc,StudentPagerFragment.this,cf,mf,qc,sc);
                 break;
@@ -148,12 +168,12 @@ public class StudentPagerFragment extends Fragment implements View.OnClickListen
     }
 
     //握手成功,值存储完毕
-    @Override
-    public void getFristHand(boolean b) {
-        //首页轮播图
-        presenter.showListBannerToView();
-
-    }
+//    @Override
+//    public void getFristHand(boolean b) {
+//        //首页轮播图
+//        presenter.showListBannerToView();
+//
+//    }
 
     /**
      * 首页轮播图展示
@@ -175,6 +195,27 @@ public class StudentPagerFragment extends Fragment implements View.OnClickListen
         stuPagerbanner.start();
     }
 
+    @Override
+    public void showListTryClass(ArrayList<ListTryBean.DataBean.TryBean> list) {
+
+        //设置适配器
+        ListTryClassAdepter listTryClassAdepter=new ListTryClassAdepter(getActivity(),list);
+        stuPagerLvFree.setAdapter(listTryClassAdepter);
+
+    }
+
+    @Override
+    public void showListSpecial(ArrayList<SpecialClassBean.DataBean.TopicBean> list) {
+        //设置适配器
+        SpecialClassAdepter adepter = new SpecialClassAdepter(getActivity(),list);
+        stuPagerLvSpecial.setAdapter(adepter);
+
+    }
+
+    @Override
+    public void showReginInfo(String info) {
+
+    }
 
 
 }

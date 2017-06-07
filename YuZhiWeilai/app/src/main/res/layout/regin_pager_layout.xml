@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/regin_return"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/last_ic"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_marginRight="30dp"
+            android:gravity="center"
+            android:text="注册"
+            android:textColor="#121212"
+            android:textSize="18dp" />
+    </LinearLayout>
+    <include layout="@layout/style_null"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x330"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/regin_img"
+            android:layout_marginTop="15dp"
+            android:layout_width="@dimen/x200"
+            android:layout_height="@dimen/x200"
+            android:layout_gravity="center"
+            android:src="@mipmap/logo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/x84"
+        android:layout_marginLeft="@dimen/x84"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="手机号码"
+            android:textColor="#121212"
+            android:textSize="@dimen/x40" />
+
+        <EditText
+            android:id="@+id/regin_tel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x50"
+            android:hint="+86"
+            android:textColor="#cacaca"
+            android:textSize="@dimen/x40"
+
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/x84"
+        android:layout_marginRight="@dimen/x84"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="验证码"
+            android:textColor="#121212"
+            android:textSize="@dimen/x40" />
+
+        <EditText
+            android:id="@+id/regin_Editcheck"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+          android:layout_marginLeft="@dimen/x100"
+            android:hint="输入验证码"
+            android:textColor="#cacaca"
+            android:textSize="@dimen/x40"
+
+            />
+        <TextView
+            android:id="@+id/regin_getCheckNum"
+            android:text="获取验证码"
+            android:textColor="#121212"
+            android:textSize="@dimen/x44"
+            android:layout_marginBottom="13.3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/x84"
+        android:layout_marginLeft="@dimen/x84"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="密码"
+            android:textColor="#121212"
+            android:textSize="@dimen/x40" />
+
+        <EditText
+
+            android:inputType="textPassword"
+            android:id="@+id/regin_pwd"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x150"
+            android:hint="密码不少于6个字"
+
+
+            android:textColor="#cacaca"
+            android:textSize="@dimen/x40"
+
+            />
+
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:layout_width="26.7dp"
+            android:layout_height="26.7dp"
+            android:id="@+id/regin_noShowPwd"
+            android:layout_marginBottom="13.3dp"
+            android:src="@drawable/regin_pwd_show"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/regin_regin"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="@dimen/x600"
+        android:layout_height="@dimen/x90"
+        android:layout_marginTop="@dimen/x50"
+
+        android:background="@drawable/regin_regin"
+        />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+
+<LinearLayout
+
+    android:layout_width="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+    <CheckBox
+        android:id="@+id/regin_agree"
+        android:layout_width="26.7dp"
+        android:layout_height="26.7dp"
+        android:button="@drawable/regin_agree"
+        android:layout_marginBottom="6.7dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我已阅读并同意"
+        android:textColor="#898989"
+        android:layout_marginBottom="13.3dp"
+
+        android:textSize="12sp"
+
+        />
+    
+</LinearLayout>
+
+
+
+
+</LinearLayout>

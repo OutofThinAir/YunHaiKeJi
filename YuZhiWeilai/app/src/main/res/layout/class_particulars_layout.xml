@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y816">
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y272"
+                android:layout_marginTop="@dimen/y48">
+
+                <ImageView
+                    android:id="@+id/particulars_tea_hand"
+                    android:layout_width="@dimen/x111"
+                    android:layout_height="@dimen/y107"
+                    android:layout_marginLeft="@dimen/x50"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/android_template"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_toRightOf="@id/particulars_tea_hand"
+                    android:layout_marginLeft="@dimen/x33"
+                    android:layout_centerVertical="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/x36"
+                        android:textColor="#323232"
+                        android:text="余春华老师"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/x36"
+                        android:textColor="#323232"
+                        android:layout_marginTop="5dp"
+                        android:text="余春华老师"/>
+                </LinearLayout>
+
+               <TextView
+                   android:layout_width="@dimen/x217"
+                   android:layout_height="@dimen/y53"
+                   android:layout_alignParentRight="true"
+                   android:layout_marginRight="@dimen/x50"
+                   android:layout_centerVertical="true"
+                   android:text="听讲师介绍"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y272"
+                android:layout_marginTop="@dimen/y38">
+
+                <TextView
+                    android:id="@+id/particulars_title1"
+                    android:text="连锁门店课程大纲"
+                    style="@style/particulars_title_style" />
+
+                <TextView
+                    android:text="连锁门店课程大纲"
+                    style="@style/particulars_info_style"
+                    android:layout_below="@id/particulars_title1"
+                    android:layout_marginTop="@dimen/y21"
+                    />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y353"
+                android:layout_marginTop="@dimen/y38">
+
+                <TextView
+                    android:id="@+id/particulars_title2"
+                    android:text="课程简介"
+                    style="@style/particulars_title_style" />
+
+                <TextView
+                    android:text="连锁门店课程大纲"
+                    style="@style/particulars_info_style"
+                    android:layout_below="@id/particulars_title2"
+                    android:layout_marginTop="@dimen/y21"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y144"
+                android:layout_marginTop="@dimen/y38">
+
+                <TextView
+                    android:id="@+id/particulars_title3"
+                    android:text="学员评价"
+                    style="@style/particulars_title_style" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y158"
+        android:layout_marginTop="@dimen/y48">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/android_template"
+               />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/android_template"
+                android:layout_marginLeft="10dp"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/android_template"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="@dimen/x278"
+            android:layout_height="@dimen/y106"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:text="课后测试"/>
+    </RelativeLayout>
+
+</LinearLayout>

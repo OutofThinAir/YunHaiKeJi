@@ -8,6 +8,7 @@ import java.util.List;
  * Data:2017/5/25.
  */
 
+
 public class ListBannerBean {
 
 
@@ -16,8 +17,14 @@ public class ListBannerBean {
      * data : {"banner":[{"image":"","click":""},{"image":"","click":""},{"image":"","click":""}]}
      */
 
+
+
+    private int id;
     private int ret;
+
     private DataBean data;
+
+
 
     public int getRet() {
         return ret;
@@ -35,7 +42,19 @@ public class ListBannerBean {
         this.data = data;
     }
 
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
     public static class DataBean {
+
+        private int id;
+
         private List<BannerBean> banner;
 
         public List<BannerBean> getBanner() {
@@ -46,12 +65,14 @@ public class ListBannerBean {
             this.banner = banner;
         }
 
+
         public static class BannerBean {
             /**
              * image :
              * click :
              */
 
+            private int id;
             private String image;
             private String click;
 

@@ -28,11 +28,23 @@ public class UrlConnect {
     //连接向导
     public static final String GED_HOST="/app/v1/get_host";
 
-    //首页轮播图
-    public static final String LISD_BNNER="app/v1/list_banner";
+    //首页轮播图.
+
+    public static final String LISD_BNNER="/app/v1/list_banner";
 
     //试听列表
-    public static final String LIST_TRY="app/v1/list_try";
+    public static final String LIST_TRY="/app/v1/list_try";
 
+    //精品专辑
+    public static final String LIST_TOPIC="/app/v1/list_topic";
+
+    //注册接口
+    public static final String USER_REG="/app/v1/user_reg";
+
+    //验证码验证
+    public static final String USER_CHECK_RAND="/app/v1/user_check_rand";
+
+    //密码登录
+    public static final String USER_PWD_LOGIN="/app/v1/user_pwd_login";
 
 }
